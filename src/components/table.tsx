@@ -25,7 +25,7 @@ const Table: FC<TableProps> = ({
       <table className={classes.table}>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>University Name</th>
             <th>State/Province</th>
             <th>Website</th>
             <th>Actions</th>

@@ -3,8 +3,12 @@ import Database from "better-sqlite3";
 export async function GET() {
   const db = new Database("universities.db");
   const favorites = db.prepare("SELECT * FROM favorites").all();
+  const formattedFavorites = favorites.map((fav: any) => ({
+    ...fav,
+    web_pages: fav.web_pages ? JSON.parse(fav.web_pages) : [],
+  }));
   db.close();
-  return Response.json(favorites, { status: 200 });
+  return Response.json(formattedFavorites, { status: 200 });
 }
 
 export async function POST(req: {

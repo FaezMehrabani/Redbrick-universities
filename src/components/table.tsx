@@ -5,8 +5,8 @@ interface TableProps {
   data: Array<{
     id: number;
     name: string;
-    state: string;
-    website: string;
+    state_province: string;
+    web_pages: string;
     university_id: number;
   }>;
   onToggleFavorite: (id: number) => void;
@@ -35,15 +35,26 @@ const Table: FC<TableProps> = ({
           {data.map((item) => (
             <tr key={item.id}>
               <td>{item.name}</td>
-              <td>{item.state}</td>
+              <td>{item.state_province}</td>
               <td>
-                <a
+                {Array.isArray(item.web_pages) // Ensure it's an array
+                  ? item.web_pages.map((url, index) => (
+                      <span key={index}>
+                        <a href={url} target="_blank" rel="noopener noreferrer">
+                          {url}
+                        </a>
+                        {index < item.web_pages.length - 1 ? ", " : ""}{" "}
+                        {/* Add a comma separator */}
+                      </span>
+                    ))
+                  : ""}
+                {/* <a
                   href={item.website}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {item.website}
-                </a>
+                </a> */}
               </td>
               <td>
                 {isFavorits ? (

@@ -17,7 +17,7 @@ const NavBar = () => {
             href="/"
             style={isActive("/") ? styles.activeLink : styles.link}
           >
-            Home
+            Universities
           </Link>
         </li>
         <li style={styles.navItem}>

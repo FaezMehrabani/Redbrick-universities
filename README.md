@@ -40,7 +40,6 @@ This is a **Next.js** web application that retrieves and displays university dat
 - **Frontend**: Next.js 15.1.6, React 19.0.0
 - **Database**: SQLite (better-sqlite3)
 - **Backend**: API endpoints built with Next.js API routes
-- **Containerization**: Docker
 
 ## **Setup Instructions**
 
@@ -67,8 +66,10 @@ node initdb.js
 ```
 
 it will create the database with name "universities.db" with two table in there:
+
 1- universities:
 which reading the json file of universities that has beed downloaded from this repo "https://github.com/Hipo/university-domains-list" stored in a json file in db folder and import them into the table
+
 2- favorites:
 which will be using to store the favorite universities
 

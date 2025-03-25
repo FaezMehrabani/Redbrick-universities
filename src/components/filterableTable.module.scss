@@ -1,0 +1,13 @@
+.filterSection {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.apiInfo {
+  margin-top: 20px;
+}

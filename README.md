@@ -66,8 +66,10 @@ node initdb.js
 ```
 
 it will create the database with name "universities.db" with two table in there:
+
 1- universities:
 which reading the json file of universities that has beed downloaded from this repo "https://github.com/Hipo/university-domains-list" stored in a json file in db folder and import them into the table
+
 2- favorites:
 which will be using to store the favorite universities
 

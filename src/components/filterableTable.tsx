@@ -5,7 +5,6 @@ import CountrySelector from "./countrySelector";
 import SearchBox from "./searchBox";
 import classes from "./filterableTable.module.scss";
 import Table from "./table";
-import Link from "next/link";
 
 const countries = ["Canada", "United States", "Mexico", "France"]; // This would ideally come from an API or be more dynamic
 const initialCountry = "CANADA";

@@ -40,7 +40,6 @@ This is a **Next.js** web application that retrieves and displays university dat
 - **Frontend**: Next.js 15.1.6, React 19.0.0
 - **Database**: SQLite (better-sqlite3)
 - **Backend**: API endpoints built with Next.js API routes
-- **Containerization**: Docker
 
 ## **Setup Instructions**
 

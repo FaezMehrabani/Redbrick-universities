@@ -22,7 +22,7 @@ const FilterableTable = () => {
     const startTime = Date.now();
     try {
       const res = await fetch(
-        `/api/data?country=${selectedCountry}&name=${searchText}`
+        `/api/universities?country=${selectedCountry}&name=${searchText}`
       );
       const endTime = Date.now();
       setResponseCode(res.status);

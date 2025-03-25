@@ -1,41 +1,143 @@
-<<<<<<< HEAD
-# Redbrick-universities
-take-home assignments
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# University Search Web App
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This is a **Next.js** web application that retrieves and displays university data from a local database. Users can search universities by country and name, add universities to their favorites, and track API performance metrics.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+### **Search Page**
+
+- Dropdown to filter universities by country.
+- Search box to filter universities by name.
+- Table displaying:
+  - University Name
+  - State/Province
+  - Website
+- Button to **add/remove** a university from favorites.
+- API performance tracking:
+  - API response code.
+  - Time taken to retrieve data (in milliseconds).
+- "Clear All Filters" button resets filters (default: **Canada** selected).
+- Link to navigate to the **Favorites Page**.
+- Fully responsive UI (mobile to desktop).
+
+### **Favorites Page**
+
+- Displays saved universities in a table.
+- Table columns:
+  - University Name
+  - State/Province
+  - Website
+- Button to remove an item from favorites.
+- Link to navigate back to the **Search Page**.
+- Favorites data is stored in a **SQLite database**.
+- Table updates immediately when a favorite is removed.
+- Fully responsive UI.
+
+## **Tech Stack**
+
+- **Frontend**: Next.js 15.1.6, React 19.0.0
+- **Database**: SQLite (better-sqlite3)
+- **Backend**: API endpoints built with Next.js API routes
+- **Containerization**: Docker
+
+## **Setup Instructions**
+
+### **1. Clone the Repository**
+
+```sh
+git clone https://github.com/FaezMehrabani/Redbrick-universities.git
+cd Redbrick-universities
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **2. Install Dependencies**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **3. Set Up the Database**
 
-## Learn More
+university database is already pushed into this repo, if you want to recreate the database to explore more
+you just need to run
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+node initdb.js
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+it will create the database with name "universities.db" with two table in there:
+1- universities:
+which reading the json file of universities that has beed downloaded from this repo "https://github.com/Hipo/university-domains-list" stored in a json file in db folder and import them into the table
+2- favorites:
+which will be using to store the favorite universities
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **4. Run the Application Locally**
 
-## Deploy on Vercel
+```sh
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The app will be available at: [**http://localhost:3000**](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> dbc9386 (Initial commit from Create Next App)
+## **API Endpoints**
+
+### **1. Search Universities**
+
+```http
+GET /api/universities?country=CANADA&name=Toronto
+```
+
+**Response:**
+
+```json
+[
+  {
+    "id": 7,
+    "name": "Toronto Baptist Seminary and Bible College",
+    "domains": ["tbs.edu"],
+    "web_pages": ["https://tbs.edu"],
+    "country": "Canada",
+    "alpha_two_code": "CA",
+    "state_province": "Ontario"
+  }
+]
+```
+
+### **2. Add to Favorites**
+
+```http
+POST /api/favorites
+```
+
+**Request Body:**
+
+```json
+{
+  "universityId": 6025
+}
+```
+
+### **3. Remove from Favorites**
+
+```http
+DELETE /api/favorites
+```
+
+**Request Body:**
+
+```json
+{
+  "universityId": 6028
+}
+```
+
+## **License**
+
+This project is open-source and available under the **MIT License**.
+
+---
+
+### **Author**
+
+Faez mehrabani – [GitHub](https://github.com/FaezMehrabani)

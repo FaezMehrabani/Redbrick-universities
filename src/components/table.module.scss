@@ -7,13 +7,13 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  min-width: 600px; // Prevents columns from squishing too much on mobile
 
   th,
   td {
     padding: 8px;
     border: 1px solid #ddd;
     text-align: left;
-    white-space: nowrap; // Prevents text from wrapping in columns
   }
 }
 

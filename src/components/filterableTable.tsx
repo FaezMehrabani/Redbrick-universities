@@ -49,12 +49,17 @@ const FilterableTable = () => {
   }, []);
 
   const onToggleFavorite = async (id: number) => {
+    const startTime = Date.now();
     try {
       const res = await fetch("/api/favorites", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ universityId: id }),
       });
+
+      const endTime = Date.now();
+      setResponseCode(res.status);
+      setResponseTime(endTime - startTime);
 
       const data = await res.json();
       if (res.ok) {

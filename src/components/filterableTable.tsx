@@ -99,15 +99,15 @@ const FilterableTable = () => {
         />
         <button onClick={clearFilters}>Clear All Filters</button>
       </div>
+      <div className={classes.apiInfo}>
+        <p>API Response Code: {responseCode}</p>
+        <p>API Response Time: {responseTime} ms</p>
+      </div>
       <Table
         data={data}
         onToggleFavorite={onToggleFavorite}
         favorites={favorites}
       />
-      <div className={classes.apiInfo}>
-        <p>API Response Code: {responseCode}</p>
-        <p>API Response Time: {responseTime} ms</p>
-      </div>
     </div>
   );
 };

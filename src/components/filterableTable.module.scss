@@ -9,5 +9,15 @@
 }
 
 .apiInfo {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    gap: 0;
+  }
+  @media screen and (max-width: 992px) {
+    justify-content: space-between;
+    gap: 0;
+  }
 }
